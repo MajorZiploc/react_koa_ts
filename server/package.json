@@ -1,0 +1,9 @@
+{
+  "name": "react-koa-ts-server",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.13.4"
+  }
+}
