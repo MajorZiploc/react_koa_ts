@@ -1,4 +1,4 @@
-export JUST_PROJECT_ROOT="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )";
+export JUST_PROJECT_ROOT="$(pwd)";
 . "${JUST_PROJECT_ROOT}/rest.bash";
 
 export BASE_URL='http://localhost:6000/';
