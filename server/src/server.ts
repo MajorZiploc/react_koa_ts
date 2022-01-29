@@ -7,7 +7,7 @@ import json from 'koa-json';
 const app: Koa = new Koa();
 const router: Router = new Router();
 
-router.get("/", async (ctx, next) => {
+router.get('/', async (ctx, next) => {
   ctx.body = { msg: 'Hello world!' };
   await next();
 });
@@ -20,4 +20,3 @@ app.use(router.routes()).use(router.allowedMethods());
 app.listen(6000, () => {
   console.log('Server started');
 });
-
