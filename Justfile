@@ -25,3 +25,12 @@ format-all:
   all_files=(`find -E . -type f -iregex ".*\.(jsx?|json|tsx?|html)$" -not -path "*/node_modules/*"`);
   prettier --write "${all_files[@]}";
 
+docker-container-start:
+  docker-compose -f .devcontainer/docker-compose.yml up -d;
+
+docker-container-stop:
+  docker-compose -f .devcontainer/docker-compose.yml stop;
+
+docker-container-connect CONTAINER_NAME='devcontainer_react_koa_ts_app_1':
+  docker exec -it "{{CONTAINER_NAME}}" /bin/bash;
+
