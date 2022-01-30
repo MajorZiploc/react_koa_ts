@@ -1,4 +1,5 @@
 export JUST_PROJECT_ROOT="$(pwd)";
+export JUST_PROJECT_PACKAGES="${JUST_PROJECT_ROOT}/packages";
 . "$JUST_PROJECT_ROOT/utils.bash";
 
 function just_to_nonmac {
@@ -14,25 +15,25 @@ function just_install {
 }
 
 function just_build_client {
-  cd "${JUST_PROJECT_ROOT}/client";
+  cd "${JUST_PROJECT_PACKAGES}/client";
   yarn install;
   cd ~-;
 }
 
 function just_run_client {
-  cd "${JUST_PROJECT_ROOT}/client";
+  cd "${JUST_PROJECT_PACKAGES}/client";
   yarn start;
   cd ~-;
 }
 
 function just_build_server {
-  cd "${JUST_PROJECT_ROOT}/server";
+  cd "${JUST_PROJECT_PACKAGES}/server";
   yarn install;
   cd ~-;
 }
 
 function just_run_server {
-  cd "${JUST_PROJECT_ROOT}/server";
+  cd "${JUST_PROJECT_PACKAGES}/server";
   yarn start;
   cd ~-;
 }
@@ -52,11 +53,11 @@ function just_format_all {
 }
 
 function just_docker_container_start {
-  docker-compose -f "${JUST_PROJECT_ROOT}/.devcontainer/docker-compose.yml" up -d;
+  docker-compose -f "${JUST_PROJECT_ROOT}/docker-compose.yml" up -d;
 }
 
 function just_docker_container_stop {
-  docker-compose -f "${JUST_PROJECT_ROOT}/.devcontainer/docker-compose.yml" stop;
+  docker-compose -f "${JUST_PROJECT_ROOT}/docker-compose.yml" stop;
 }
 
 function just_docker_container_connect {
