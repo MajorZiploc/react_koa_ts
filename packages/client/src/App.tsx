@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 import { DataProvider } from './context/DataContext';
-import {IData} from './data';
+import { IData } from './data';
 import { data } from './data';
 import Home from './components';
 // import Navbar from './components/Navbar';
@@ -60,8 +60,10 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
 }
 
 function App() {
-  const [appData, setAppData] = React.useState<IData.default|undefined>();
-  React.useEffect(() => {data.then(setAppData)}, []);
+  const [appData, setAppData] = React.useState<IData.default | undefined>();
+  React.useEffect(() => {
+    data.then(setAppData);
+  }, []);
 
   return (
     <React.Fragment>
@@ -72,21 +74,21 @@ function App() {
         }}
       >
         <CssBaseline />
-        {appData &&
-        <DataProvider value={appData}>
-          {/*<Navbar />*/}
-          <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home/>}/>
-            {/*
+        {appData && (
+          <DataProvider value={appData}>
+            {/*<Navbar />*/}
+            <BrowserRouter>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                {/*
               <Route exact path='/workexp' component={WorkExp} />
               <Route exact path='/opensource' component={OpenSourceProjects} />
               <Route exact path='/contact' component={Contact} />
             */}
-          </Routes>
+              </Routes>
             </BrowserRouter>
-        </DataProvider>
-        }
+          </DataProvider>
+        )}
       </ErrorBoundary>
     </React.Fragment>
   );
