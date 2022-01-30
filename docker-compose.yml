@@ -3,7 +3,7 @@ version: '3.8'
 services:
   react_koa_ts_app:
     build:
-      context: .
+      context: ./.devcontainer
       dockerfile: Dockerfile.app
       args:
         # Update 'VARIANT' to pick an LTS version of Node.js: 16, 14, 12.
@@ -30,15 +30,15 @@ services:
     image: postgres:latest
     restart: always
     expose:
-      - "5432"
+      - ${DB_PORT}
     ports:
-      - "5432:5432"
+      - "${DB_PORT}:${DB_PORT}"
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_DB: ${DB_NAME}
 
     # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
@@ -46,7 +46,7 @@ services:
     image: adminer:latest
     restart: always
     ports:
-      - "8080:8080"
+      - "${DB_ADMINER_PORT}:${DB_ADMINER_PORT}"
     environment:
       ADMINER_DEFAULT_SERVER: database
       ADMINER_DESIGN: lucas-sandery

@@ -3,8 +3,8 @@
 // Update the VARIANT arg in docker-compose.yml to pick a Node.js version
 {
   "name": "Node.js & PostgreSQL",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "react_koa_ts_app",
   "workspaceFolder": "/workspace",
 
   // Set *default* container specific settings.json values on container create.
@@ -14,11 +14,11 @@
         "name": "Container database",
         "driver": "PostgreSQL",
         "previewLimit": 50,
-        "server": "localhost",
-        "port": 5432,
-        "database": "postgres",
-        "username": "postgres",
-        "password": "postgres"
+        "server": "${env:DB_HOST}",
+        "port": "${env:DB_PORT}",
+        "database": "${env:DB_NAME}",
+        "username": "${env:DB_USERNAME}",
+        "password": "${env:DB_PASSWORD}"
       }
     ]
   },

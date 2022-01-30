@@ -53,11 +53,11 @@ function just_format_all {
 }
 
 function just_docker_container_start {
-  docker-compose -f "${JUST_PROJECT_ROOT}/.devcontainer/docker-compose.yml" up -d;
+  docker-compose -f "${JUST_PROJECT_ROOT}/docker-compose.yml" up -d;
 }
 
 function just_docker_container_stop {
-  docker-compose -f "${JUST_PROJECT_ROOT}/.devcontainer/docker-compose.yml" stop;
+  docker-compose -f "${JUST_PROJECT_ROOT}/docker-compose.yml" stop;
 }
 
 function just_docker_container_connect {
