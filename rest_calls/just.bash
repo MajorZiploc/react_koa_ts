@@ -7,7 +7,7 @@ export STAGING_BASE_URL='https://subdomain.domain.com/base/api/';
 
 # TODO: change once we have auth
 function _just_get_auth_token {
-  atoken=`echo "" | gsed -E 's/.*access_token\":\"([^,\"]*?)\",.*/\1/g'`;
+  atoken=`echo "" | sed -E 's/.*access_token\":\"([^,\"]*?)\",.*/\1/g'`;
   echo "$atoken";
 }
 
