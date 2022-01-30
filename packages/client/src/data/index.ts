@@ -1,6 +1,6 @@
-export * from './AData';
+export * as AData from './AData';
 export * from './DataFactory';
-export * from './IData';
-export * from './data';
+export * as IData from './IData';
+export * as Data from './data';
 export * from './dataUtil';
-export * from './mockData';
+export * as MockData from './mockData';
