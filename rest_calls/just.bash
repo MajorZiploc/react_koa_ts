@@ -1,4 +1,4 @@
-export JUST_PROJECT_ROOT="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )";
+export JUST_PROJECT_ROOT="$(pwd)";
 . "${JUST_PROJECT_ROOT}/rest.bash";
 
 export BASE_URL='http://localhost:6000/';
@@ -7,7 +7,7 @@ export STAGING_BASE_URL='https://subdomain.domain.com/base/api/';
 
 # TODO: change once we have auth
 function _just_get_auth_token {
-  atoken=`echo "" | gsed -E 's/.*access_token\":\"([^,\"]*?)\",.*/\1/g'`;
+  atoken=`echo "" | sed -E 's/.*access_token\":\"([^,\"]*?)\",.*/\1/g'`;
   echo "$atoken";
 }
 

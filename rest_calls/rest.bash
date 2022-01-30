@@ -4,13 +4,13 @@ function _rest_temp_response_loc {
 
 function _rest_get_query_params {
   local url="$1";
-  local query_params=`echo "$url" | gsed -E "s/([^?]*?)\??(.*?)/\2/g"`;
+  local query_params=`echo "$url" | sed -E "s/([^?]*?)\??(.*?)/\2/g"`;
   [[ -n "$query_params" ]] && { rest_encode_url "$query_params"; }
 }
 
 function _rest_get_base_url_with_endpoint {
   local url="$1";
-  echo "$url" | gsed -E "s/([^?]*?)\??(.*?)/\1/g";
+  echo "$url" | sed -E "s/([^?]*?)\??(.*?)/\1/g";
 }
 
 function _rest_format_and_print_response {
@@ -22,7 +22,7 @@ function _rest_format_and_print_response {
 function rest_encode_url {
   local url="$1";
   [[ -z "$url" ]] && { echo "Must specify url!" >&2; return 1; }
-  echo "$url" | gsed 's, ,%20,g;s,\!,%21,g;s,",%22,g;s,#,%23,g;s,\$,%24,g;s,'"'"',%27,g;';
+  echo "$url" | sed 's, ,%20,g;s,\!,%21,g;s,",%22,g;s,#,%23,g;s,\$,%24,g;s,'"'"',%27,g;';
 }
 
 
