@@ -62,7 +62,7 @@ function just_docker_container_stop {
 
 function just_docker_container_connect {
   local container_name="$1";
-  container_name=${container_name:-'devcontainer_react_koa_ts_app_1'}
+  container_name=${container_name:-'rkt_server'}
   docker exec -it "$container_name" /bin/bash;
 }
 

@@ -22,8 +22,4 @@ router.get('/', async (ctx, next) => {
 });
 app.use(router.routes()).use(router.allowedMethods());
 
-app.listen(6000, () => {
-  console.log('Server started');
-});
-
 export default app;
