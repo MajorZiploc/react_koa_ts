@@ -10,6 +10,7 @@
     "start": "nodemon"
   },
   "dependencies": {
+    "@koa/cors": "^3.1.0",
     "http-status-codes": "^2.2.0",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
@@ -28,6 +29,7 @@
     "@types/koa-json": "^2.0.20",
     "@types/koa-logger": "^3.1.2",
     "@types/koa-router": "^7.4.4",
+    "@types/koa__cors": "^3.1.1",
     "@types/node": "^17.0.13",
     "nodemon": "^2.0.15",
     "tslint": "^6.1.3",

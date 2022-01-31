@@ -7,3 +7,10 @@ databaseConnection.then(() => {
   console.log('Server started');
 }).catch(console.error);
 
+function listeningReporter () {
+  // `this` refers to the http server here
+  const { address, port } = this.address();
+  const protocol = this.addContext ? 'https' : 'http';
+  console.log(`Listening on ${protocol}://${address}:${port}...`);
+}
+

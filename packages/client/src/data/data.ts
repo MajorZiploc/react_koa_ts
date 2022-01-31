@@ -3,10 +3,10 @@ import AData from './AData';
 
 export default class Data extends AData {
   async getMovies(): Promise<Movie[]> {
-    const config = await this.getConfig();
-    const url = `${config.server.url}/movies`;
+    const url = `${process.env.APP_PUBLIC_URL}:${process.env.SERVER_PORT}/movies`;
     return fetch(url, {
       mode: 'cors',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },

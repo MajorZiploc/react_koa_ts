@@ -16,6 +16,9 @@ services:
       - type: bind
         source: ./packages/client
         target: /app
+    environment:
+      APP_PUBLIC_URL: ${APP_PUBLIC_URL}
+      SERVER_PORT: ${SERVER_PORT}
 
     # Overrides default command so things don't shut down after the process ends.
     # command: sleep infinity
@@ -55,6 +58,7 @@ services:
     ports:
       - "${SERVER_PORT}:${SERVER_PORT}"
     environment:
+      APP_PUBLIC_URL: ${APP_PUBLIC_URL}
       DB_HOST: ${DB_HOST}
       DB_PORT: ${DB_PORT}
       DB_PASSWORD: ${DB_PASSWORD}
