@@ -6,7 +6,6 @@ export type Movie = {
 };
 
 export type AppSettingsServer = {
-  url: string;
   shouldMock: boolean;
 };
 
