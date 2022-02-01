@@ -47,7 +47,7 @@ function just_format {
 
 function just_format_all {
   cd "${JUST_PROJECT_ROOT}";
-  all_files=(`find -E . -type f -iregex ".*\.(jsx?|json|tsx?|html)$" -not -path "*/node_modules/*"`);
+  all_files=(`find . -type f -regextype egrep -iregex ".*\.(jsx?|json|tsx?|html)$" -not -path "*/node_modules/*"`);
   prettier --write "${all_files[@]}";
   cd ~-;
 }
