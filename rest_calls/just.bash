@@ -1,5 +1,5 @@
-export JUST_PROJECT_ROOT="$(pwd)";
-. "${JUST_PROJECT_ROOT}/rest.bash";
+export JUST_PROJECT_REST_CALL_ROOT="$(pwd)";
+. "${JUST_PROJECT_REST_CALL_ROOT}/rest.bash";
 
 export BASE_URL='http://localhost:6000/';
 export STAGING_SERVER_01_BASE_URL='https://server-name/base/api/';
