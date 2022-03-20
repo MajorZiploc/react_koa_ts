@@ -14,6 +14,12 @@ function just_install {
   npm install -g prettier;
 }
 
+function just_clean {
+  rm -rf "${JUST_PROJECT_PACKAGES}/client/node_modules";
+  rm -rf "${JUST_PROJECT_PACKAGES}/server/node_modules";
+}
+
+
 function just_build_client {
   cd "${JUST_PROJECT_PACKAGES}/client";
   yarn install;
