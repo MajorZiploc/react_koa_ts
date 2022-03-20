@@ -14,6 +14,12 @@ function just_install {
   npm install -g prettier;
 }
 
+function just_clean {
+  rm -rf "${JUST_PROJECT_PACKAGES}/client/node_modules";
+  rm -rf "${JUST_PROJECT_PACKAGES}/server/node_modules";
+}
+
+
 function just_build_client {
   cd "${JUST_PROJECT_PACKAGES}/client";
   yarn install;
@@ -47,7 +53,7 @@ function just_format {
 
 function just_format_all {
   cd "${JUST_PROJECT_ROOT}";
-  all_files=(`find -E . -type f -iregex ".*\.(jsx?|json|tsx?|html)$" -not -path "*/node_modules/*"`);
+  all_files=(`find . -type f -regextype egrep -iregex ".*\.(jsx?|json|tsx?|html)$" -not -path "*/node_modules/*"`);
   prettier --write "${all_files[@]}";
   cd ~-;
 }
